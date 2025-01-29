@@ -34,4 +34,10 @@ app.get('/apps', async (req, res) => {
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 Server is running on port ${PORT}`);
 });
+const cors = require('cors');
+app.use(cors({
+    origin: 'https://todolistclient-whfh.onrender.com', // מחליף את 'localhost'
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type']
+}));
 
