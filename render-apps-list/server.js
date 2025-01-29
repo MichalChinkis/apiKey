@@ -25,3 +25,9 @@ app.get('/apps', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+import renderApi from '@api/render-api';
+
+renderApi.auth('rnd_YHHFyuRvDSmYMYFlBhvkCHGjcB9O');
+renderApi.listServices({includePreviews: 'true', limit: '20'})
+  .then(({ data }) => console.log(data))
+  .catch(err => console.error(err));
