@@ -1,9 +1,13 @@
+import renderApi from '@api/render-api';
 require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+
+
 
 // מסלול שמחזיר את רשימת האפליקציות מה-Render API
 app.get('/apps', async (req, res) => {
@@ -25,7 +29,7 @@ app.get('/apps', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
-import renderApi from '@api/render-api';
+
 
 renderApi.auth('rnd_YHHFyuRvDSmYMYFlBhvkCHGjcB9O');
 renderApi.listServices({includePreviews: 'true', limit: '20'})
