@@ -1,9 +1,13 @@
 require('dotenv').config();
+const cors = require('cors');
+
 const express = require('express');
 const axios = require('axios');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+app.use(cors());
+
 
 // API Key שמוגדר בקובץ .env
 const API_KEY = process.env.RENDER_API_KEY;
@@ -34,7 +38,6 @@ app.get('/apps', async (req, res) => {
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 Server is running on port ${PORT}`);
 });
-const cors = require('cors');
 app.use(cors({
     origin: 'https://todolistclient-whfh.onrender.com', // מחליף את 'localhost'
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
